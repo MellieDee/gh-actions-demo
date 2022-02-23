@@ -1,0 +1,28 @@
+#  Name of Workflow
+name: Lint Workflow
+# Trigger workflow on all pull requests
+on:
+  pull_requests:
+    branches:
+      - dev
+      - main
+# Jobs to carry out
+jobs:
+  test:
+    # Operating system to run job on
+    runs-on: ubunto-latest
+    # Steps in job
+    steps:
+      # Get code from repo
+      - name: Checkout code
+        uses: actions/checkout@v1
+      # Install NodeJS
+      - name: Use Nnode.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      # build the app
+      - name: install deps
+        run: npm install
+      - name: Run lint
+        run: npm run eslint
