@@ -2,8 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 
 
-const App = 56
-
 function App() {
   return (
     <div className="App">
